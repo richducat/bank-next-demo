@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Next Demo – Login</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">BANK</div>
+    <nav>
+      <a href="login.html" id="nav-login" class="active">Login</a>
+      <a href="cards.html" id="nav-cards">Cards</a>
+      <a href="deposit.html" id="nav-deposit">Deposit</a>
+      <a href="pay.html" id="nav-pay">Pay</a>
+      <a href="more.html" id="nav-more">More</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Secure Sign‑In</h1>
+    <p>Use your passkey or Face ID for instant sign‑in, or fall back to username and password.</p>
+    <div class="cards-container">
+      <button class="btn" onclick="alert('In a live build, passkey authentication would initiate here.')">Sign in with Passkey / Face ID</button>
+      <p style="text-align:center; margin: 0.5rem 0;">or</p>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" />
+      </div>
+      <button class="btn" onclick="alert('This is a demo; login is not functional.')">Sign In</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bank Next Demo</p>
+  </footer>
+</body>
+</html>

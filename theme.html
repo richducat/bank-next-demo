@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Next Demo – Theme & Logo Customization</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">BANK</div>
+    <nav>
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="cards.html" id="nav-cards">Cards</a>
+      <a href="deposit.html" id="nav-deposit">Deposit</a>
+      <a href="pay.html" id="nav-pay">Pay</a>
+      <a href="more.html" id="nav-more">More</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Customize Theme &amp; Logo</h1>
+    <p>Pick your primary and accent colors and set your logo text. Your selections will persist across pages on this device.</p>
+    <div class="theme-picker">
+      <div class="form-group">
+        <label for="primary-color">Primary Color</label>
+        <input type="color" id="primary-color" value="#17675c" />
+      </div>
+      <div class="form-group">
+        <label for="accent-color">Accent Color</label>
+        <input type="color" id="accent-color" value="#0095be" />
+      </div>
+      <div class="form-group">
+        <label for="logo-text">Logo Text</label>
+        <input type="text" id="logo-text" class="logo-input" value="BANK" maxlength="12" />
+      </div>
+      <button class="btn" id="save-theme">Save &amp; Apply</button>
+      <button class="btn secondary" id="reset-theme">Reset to Defaults</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bank Next Demo</p>
+  </footer>
+</body>
+</html>

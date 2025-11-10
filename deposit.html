@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Next Demo – Deposit</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">BANK</div>
+    <nav>
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="cards.html" id="nav-cards">Cards</a>
+      <a href="deposit.html" id="nav-deposit" class="active">Deposit</a>
+      <a href="pay.html" id="nav-pay">Pay</a>
+      <a href="more.html" id="nav-more">More</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Mobile Deposit</h1>
+    <p>Deposit checks quickly and securely from your phone or tablet.</p>
+    <div class="deposit-container">
+      <div class="form-group">
+        <label for="deposit-amount">Amount</label>
+        <input type="number" id="deposit-amount" placeholder="e.g., 300.00" />
+      </div>
+      <div class="form-group">
+        <label for="deposit-date">Date</label>
+        <input type="date" id="deposit-date" />
+      </div>
+      <div class="form-group">
+        <label for="deposit-image-front">Photo of Check – Front</label>
+        <input type="file" id="deposit-image-front" accept="image/*" />
+      </div>
+      <div class="form-group">
+        <label for="deposit-image-back">Photo of Check – Back</label>
+        <input type="file" id="deposit-image-back" accept="image/*" />
+      </div>
+      <div class="form-group">
+        <p><strong>Estimated availability:</strong> <span id="deposit-eta">Next business day 9:00 AM – 5:00 PM</span></p>
+        <p><a href="#" class="details-link" id="deposit-eta-info">Why this date?</a></p>
+      </div>
+      <button class="btn" id="submit-deposit">Submit Deposit</button>
+    </div>
+    <!-- ETA explanation modal -->
+    <div id="deposit-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Deposit Availability</h2>
+        <p>Your mobile check deposit is typically available the next business day by 9:00 AM – 5:00 PM. Holds may apply based on deposit history and check amount.</p>
+        <button class="close-modal">Close</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bank Next Demo</p>
+  </footer>
+</body>
+</html>

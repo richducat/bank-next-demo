@@ -1,0 +1,306 @@
+/* Base styles for Bank Next unbranded demo */
+/* CSS variables for theming. These can be overridden via script.js or a theme picker. */
+:root {
+  --color-primary: #17675c; /* default teal */
+  --color-accent: #0095be; /* default blue */
+  --color-background: #f9f9fa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #666666;
+  --border-radius: 8px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+nav a {
+  margin-left: 1rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+nav a.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+main {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.balances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.balances span {
+  background-color: var(--color-surface);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.math-explanation {
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transaction {
+  margin-bottom: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.transaction .summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+.transaction .details {
+  padding: 0.75rem;
+  background-color: #fafafa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.transaction .amount {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.amount.positive {
+  color: #2c7a7b;
+}
+.amount.negative {
+  color: #c53030;
+}
+
+.rail, .eta, .status {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.status.pending {
+  color: #d69e2e;
+}
+.status.posted {
+  color: #2f855a;
+}
+.status.onhold {
+  color: #c53030;
+}
+
+.details-link {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: var(--color-surface);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.close-modal {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+/* Form and button styles */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+button {
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+.btn.secondary {
+  background-color: var(--color-accent);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  display: inline-block;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--color-primary);
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Additional page specific styles */
+.cards-container, .deposit-container, .pay-container, .more-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+}
+
+.card-item .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.theme-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 400px;
+}
+.theme-picker input[type="color"] {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.logo-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+}

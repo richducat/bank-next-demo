@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Next Demo – Card Controls</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">BANK</div>
+    <nav>
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="cards.html" id="nav-cards" class="active">Cards</a>
+      <a href="deposit.html" id="nav-deposit">Deposit</a>
+      <a href="pay.html" id="nav-pay">Pay</a>
+      <a href="more.html" id="nav-more">More</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Card Controls</h1>
+    <p>Manage your cards and set controls in real time.</p>
+    <div class="cards-container">
+      <!-- Card 1 -->
+      <div class="card-item">
+        <div>
+          <strong>Visa •••• 1234</strong><br/>
+          <small>Everyday checking card</small>
+        </div>
+        <div class="actions">
+          <label class="toggle-switch">
+            <input type="checkbox" id="card1-toggle" checked />
+            <span class="slider"></span>
+          </label>
+          <span id="card1-status">Active</span>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card-item">
+        <div>
+          <strong>Mastercard •••• 5678</strong><br/>
+          <small>Savings debit card</small>
+        </div>
+        <div class="actions">
+          <label class="toggle-switch">
+            <input type="checkbox" id="card2-toggle" />
+            <span class="slider"></span>
+          </label>
+          <span id="card2-status">Locked</span>
+        </div>
+      </div>
+    </div>
+    <p>Use the switches to lock or unlock your cards instantly. When locked, card purchases will be declined until you re-enable the card.</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bank Next Demo</p>
+  </footer>
+</body>
+</html>

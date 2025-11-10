@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Next Demo – Money Timeline</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">BANK</div>
+    <nav>
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="cards.html" id="nav-cards">Cards</a>
+      <a href="deposit.html" id="nav-deposit">Deposit</a>
+      <a href="pay.html" id="nav-pay">Pay</a>
+      <a href="more.html" id="nav-more">More</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Money Timeline</h1>
+    <div class="balances">
+      <span><strong>Available:</strong> $4,532.15</span>
+      <span><strong>Pending:</strong> $628.00</span>
+      <span><strong>Ledger:</strong> $5,160.15</span>
+    </div>
+    <p class="math-explanation"><a href="#" id="how-calc-link">How we calculate this?</a></p>
+    <!-- Balance calculation modal -->
+    <div id="calc-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Balance Calculation</h2>
+        <p>
+          Your <strong>Available Balance</strong> is calculated by taking your current ledger
+          balance and subtracting any pending outgoing transactions (like card
+          purchases or transfers) while adding any pending incoming
+          transactions (like deposits).
+        </p>
+        <p>
+          The <strong>Pending</strong> amount reflects transactions that have been
+          authorized but not yet posted to your ledger. Once they post, they
+          will adjust your ledger balance accordingly.
+        </p>
+        <button class="close-modal">Close</button>
+      </div>
+    </div>
+    <!-- Transaction timeline -->
+    <ul class="timeline" id="timeline">
+      <!-- Transaction 1 -->
+      <li class="transaction">
+        <div class="summary">
+          <span class="description">Payroll Deposit</span>
+          <span class="amount positive">+ $1,200.00</span>
+          <span class="rail">ACH Credit</span>
+          <span class="eta">Earliest 9:30 AM · Latest 1:00 PM (Mon)</span>
+          <span class="status pending">Pending</span>
+          <a href="#" class="details-link">Why this date?</a>
+        </div>
+        <div class="details hidden">
+          <p><strong>Rail:</strong> ACH Credit</p>
+          <p><strong>Status:</strong> Pending</p>
+          <p><strong>Estimated availability:</strong> Monday 9:30 AM – 1:00 PM</p>
+          <p><strong>Reason:</strong> ACH credits submitted before 7:00 PM ET are processed next
+          business day. Your employer submitted this credit on Friday after
+          cutoff, so it posts on Monday.</p>
+        </div>
+      </li>
+      <!-- Transaction 2 -->
+      <li class="transaction">
+        <div class="summary">
+          <span class="description">Mortgage Payment</span>
+          <span class="amount negative">– $1,150.00</span>
+          <span class="rail">ACH Debit</span>
+          <span class="eta">Earliest 8:00 AM · Latest 6:00 PM (Wed)</span>
+          <span class="status scheduled">Scheduled</span>
+          <a href="#" class="details-link">Why this date?</a>
+        </div>
+        <div class="details hidden">
+          <p><strong>Rail:</strong> ACH Debit</p>
+          <p><strong>Status:</strong> Scheduled</p>
+          <p><strong>Estimated settlement:</strong> Wednesday 8:00 AM – 6:00 PM</p>
+          <p><strong>Reason:</strong> ACH debits settle on the scheduled date and can post anytime during
+          the business day.</p>
+        </div>
+      </li>
+      <!-- Transaction 3 -->
+      <li class="transaction">
+        <div class="summary">
+          <span class="description">Mobile Check Deposit</span>
+          <span class="amount positive">+ $300.00</span>
+          <span class="rail">Check Deposit</span>
+          <span class="eta">Earliest 9:00 AM · Latest 5:00 PM (Tue)</span>
+          <span class="status pending">Pending</span>
+          <a href="#" class="details-link">Why this date?</a>
+        </div>
+        <div class="details hidden">
+          <p><strong>Rail:</strong> Check Deposit</p>
+          <p><strong>Status:</strong> Pending</p>
+          <p><strong>Estimated availability:</strong> Tuesday 9:00 AM – 5:00 PM</p>
+          <p><strong>Reason:</strong> Mobile check deposits are typically available the next business day.
+          Additional holds may apply based on deposit history.</p>
+        </div>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bank Next Demo</p>
+  </footer>
+</body>
+</html>
