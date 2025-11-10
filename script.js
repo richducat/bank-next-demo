@@ -48,6 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const calcLink = $('#how-calc-link');
   const calcModal = $('#calc-modal');
   if (calcLink && calcModal) {
+    // Ensure the modal is hidden on initial page load. Some hosting environments
+    // may strip the `hidden` class from the markup, leaving the modal
+    // visible by default. Add the `hidden` class here to guarantee it
+    // starts hidden even if the HTML is modified or scripts are partially executed.
+    calcModal.classList.add('hidden');
+
     calcLink.addEventListener('click', (e) => {
       e.preventDefault();
       calcModal.classList.remove('hidden');
