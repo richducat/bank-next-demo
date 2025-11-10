@@ -171,17 +171,17 @@ document.addEventListener('DOMContentLoaded', () => {
     updateEta();
   }
 
-  // Generic close handler for any modal
-  // Some deployments (e.g., GitHub Pages) seem to ignore or strip specific
-  // event bindings. To ensure that all modals close as expected,
-  // attach a fallback listener to every element with the `.close-modal` class.
-  $$('.close-modal').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      // Find the closest modal ancestor and hide it
-      const modalEl = btn.closest('.modal');
+  // Generic close handler for any modal. We delegate the event to the document
+  // so that even if elements are dynamically inserted or scripts are stripped
+  // during build, clicking a `.close-modal` button will hide its parent modal.
+  document.addEventListener('click', (event) => {
+    // Check if the click originated from a close-modal button or its child
+    const closeBtn = event.target.closest('.close-modal');
+    if (closeBtn) {
+      const modalEl = closeBtn.closest('.modal');
       if (modalEl) {
         modalEl.classList.add('hidden');
       }
-    });
+    }
   });
 });
