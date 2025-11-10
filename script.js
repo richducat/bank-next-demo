@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $('#logo').textContent = logoText;
     }
     // Also sync inputs on theme page if present
-    if ($('#primary-color') && primary) {
-      $('#primary-color').value = primary;
+    if ($('#primary-color') && primary) {      $('#primary-color').value = primary;
     }
     if ($('#accent-color') && accent) {
       $('#accent-color').value = accent;
@@ -126,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // Add event listeners for any generic modal close buttons
+  // Addevent listeners for any generic modal close buttons
   $$('.close-modal').forEach((btn) => {
     btn.addEventListener('click', () => {
       const modalEl = btn.closest('.modal');
