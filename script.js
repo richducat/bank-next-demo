@@ -124,4 +124,15 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Theme reset to defaults.');
     });
   }
+
+
+  // Add event listeners for any generic modal close buttons
+  $$('.close-modal').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const modalEl = btn.closest('.modal');
+      if (modalEl) {
+        modalEl.classList.add('hidden');
+      }
+    });
+  });
 });
