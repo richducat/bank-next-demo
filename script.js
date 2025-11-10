@@ -125,41 +125,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Provide a generic close handler for all modal close buttons.  
-  // When a button with the class `close-modal` is clicked, its nearest parent
-  // with the `.modal` class is hidden again. This avoids having to
-  // explicitly bind each modal’s close button separately and ensures
-  // reliability across pages.
-  $$('.close-modal').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const modalEl = btn.closest('.modal');
-      if (modalEl) {
-        modalEl.classList.add('hidden');
-      }
-    });
-  });
-
-  // --- More page modal triggers ---
-  // Each button on the More page opens its respective modal. When clicked, the
-  // corresponding modal is displayed by removing the `hidden` class.
-  const modalMapping = {
-    'start-chat': 'chat-modal',
-    'view-statements': 'statements-modal',
-    'find-location': 'location-modal',
-    'view-options': 'security-modal',
-    'view-comparison': 'comparison-modal'
-    // Additional mappings inserted below for card manage buttons on the Cards page
-    , 'manage-card1': 'card1-modal'
-    , 'manage-card2': 'card2-modal'
-  };
-  Object.keys(modalMapping).forEach((btnId) => {
-    const btnEl = document.getElementById(btnId);
-    const modalId = modalMapping[btnId];
-    const modalEl = document.getElementById(modalId);
-    if (btnEl && modalEl) {
-      btnEl.addEventListener('click', () => {
-        modalEl.classList.remove('hidden');
-      });
+  // Highlight the active navigation link based on current page
+  const navLinksAll = document.querySelectorAll('nav a');
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  navLinksAll.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
+
+  // Update deposit ETA dynamically based on selected date
+  const depositDateInput = $('#deposit-date');
+  const depositEtaSpan = $('#deposit-eta');
+  if (depositDateInput && depositEtaSpan) {
+    const getNextBusinessDay = (date) => {
+      const d = new Date(date);
+      d.setDate(d.getDate() + 1);
+      // 0 = Sunday, 6 = Saturday
+      while (d.getDay() === 0 || d.getDay() === 6) {
+        d.setDate(d.getDate() + 1);
+      }
+      return d;
+    };
+    const updateEta = () => {
+      let etaDate;
+      if (depositDateInput.value) {
+        const selectedDate = new Date(depositDateInput.value);
+        if (!isNaN(selectedDate)) {
+          etaDate = getNextBusinessDay(selectedDate);
+        }
+      }
+      if (!etaDate) {
+        const today = new Date();
+        etaDate = getNextBusinessDay(today);
+      }
+      const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const dayName = dayNames[etaDate.getDay()];
+      depositEtaSpan.textContent = `Earliest 9:00 AM · Latest 5:00 PM (${dayName})`;
+    };
+    depositDateInput.addEventListener('change', updateEta);
+    // Initialize ETA on load
+    updateEta();
+  }
 });

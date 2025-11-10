@@ -143,9 +143,8 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
-
 .hidden {
-    display: none !important;
+  display: none;
 }
 
 /* Modal styles */
@@ -304,4 +303,9 @@ input:checked + .slider:before {
   border: 1px solid #ccc;
   border-radius: var(--border-radius);
   background-color: var(--color-surface);
+}
+
+/* Back button container to provide spacing from other elements */
+.back-container {
+  margin-top: 1rem;
 }
