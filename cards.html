@@ -34,6 +34,7 @@
             <span class="slider"></span>
           </label>
           <span id="card1-status">Active</span>
+          <button id="manage-card1" class="btn secondary" type="button">Manage</button>
         </div>
       </div>
       <!-- Card 2 -->
@@ -48,6 +49,7 @@
             <span class="slider"></span>
           </label>
           <span id="card2-status">Locked</span>
+          <button id="manage-card2" class="btn secondary" type="button">Manage</button>
         </div>
       </div>
     </div>
@@ -56,5 +58,42 @@
   <footer>
     <p>&copy; 2025 Bank Next Demo</p>
   </footer>
+  <!-- Card detail modals -->
+  <!-- Card 1 Modal -->
+  <div id="card1-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Visa •••• 1234</h2>
+      <p>Manage advanced settings for your card.</p>
+      <h3>Spending Controls</h3>
+      <p>Set per-channel limits (demo only):</p>
+      <label><input type="checkbox" disabled checked /> Online purchases enabled</label><br/>
+      <label><input type="checkbox" disabled checked /> Tap to pay enabled</label><br/>
+      <label><input type="checkbox" disabled checked /> ATM withdrawals enabled</label><br/>
+      <h3>Virtual Card Number</h3>
+      <p>VCN: <code>4111 1111 1111 1234</code> <button disabled>Copy</button></p>
+      <h3>Travel Notice</h3>
+      <p>Add a travel notice to avoid declines when traveling.</p>
+      <button class="btn secondary" disabled>Add Travel Notice</button>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+  <!-- Card 2 Modal -->
+  <div id="card2-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Mastercard •••• 5678</h2>
+      <p>Manage advanced settings for your card.</p>
+      <h3>Spending Controls</h3>
+      <p>Set per-channel limits (demo only):</p>
+      <label><input type="checkbox" disabled /> Online purchases enabled</label><br/>
+      <label><input type="checkbox" disabled /> Tap to pay enabled</label><br/>
+      <label><input type="checkbox" disabled /> ATM withdrawals enabled</label><br/>
+      <h3>Virtual Card Number</h3>
+      <p>VCN: <code>5100 0000 0000 5678</code> <button disabled>Copy</button></p>
+      <h3>Travel Notice</h3>
+      <p>Add a travel notice to avoid declines when traveling.</p>
+      <button class="btn secondary" disabled>Add Travel Notice</button>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
 </body>
 </html>

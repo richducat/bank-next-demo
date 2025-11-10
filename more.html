@@ -25,22 +25,26 @@
       <section>
         <h2>Live Chat</h2>
         <p>Chat with a support agent in real time for account questions.</p>
-        <button class="btn secondary" onclick="alert('Live chat will be available in the full build.')">Start Chat</button>
+        <!-- The Start Chat button opens a modal instead of a placeholder alert -->
+        <button id="start-chat" class="btn secondary" type="button">Start Chat</button>
       </section>
       <section>
         <h2>Statements</h2>
         <p>View and download your account statements.</p>
-        <button class="btn secondary" onclick="alert('Statement access will be available in the full build.')">View Statements</button>
+        <!-- View Statements opens a modal with a sample statement list -->
+        <button id="view-statements" class="btn secondary" type="button">View Statements</button>
       </section>
       <section>
         <h2>Branches &amp; ATMs</h2>
         <p>Locate nearby branches and ATMs.</p>
-        <button class="btn secondary" onclick="alert('Branch and ATM locator will be available in the full build.')">Find Location</button>
+        <!-- Find Location opens a modal with placeholder locations -->
+        <button id="find-location" class="btn secondary" type="button">Find Location</button>
       </section>
       <section>
         <h2>Security &amp; Sign-in</h2>
         <p>Review your security settings and sign-in options.</p>
-        <button class="btn secondary" onclick="alert('Security and sign-in options will be available in the full build.')">View Options</button>
+        <!-- View Options opens a modal with sign-in and security information -->
+        <button id="view-options" class="btn secondary" type="button">View Options</button>
       </section>
       <section>
         <h2>Theme &amp; Logo</h2>
@@ -50,12 +54,67 @@
       <section>
         <h2>Before vs After</h2>
         <p>See how transparency transforms the banking experience.</p>
-        <button class="btn secondary" onclick="alert('In the full build, this section will present comparison slides.')">View Comparison</button>
+        <!-- View Comparison opens a modal with a sample before/after slide -->
+        <button id="view-comparison" class="btn secondary" type="button">View Comparison</button>
       </section>
     </div>
   </main>
   <footer>
     <p>&copy; 2025 Bank Next Demo</p>
   </footer>
+  <!-- Modals for the More page -->
+  <!-- Live Chat Modal -->
+  <div id="chat-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Live Chat</h2>
+      <p>Connect with a support agent. In a real build this would open a chat interface with a secure connection to our support team.</p>
+      <p>For the demo, this modal shows how chat could be presented in context.</p>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+  <!-- Statements Modal -->
+  <div id="statements-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Statements</h2>
+      <p>Select a statement to view or download. In a live application these links would open PDFs.</p>
+      <ul class="statement-list">
+        <li><a href="#" onclick="event.preventDefault();">October 2025</a></li>
+        <li><a href="#" onclick="event.preventDefault();">September 2025</a></li>
+        <li><a href="#" onclick="event.preventDefault();">August 2025</a></li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+  <!-- Branches & ATMs Modal -->
+  <div id="location-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Branches &amp; ATMs</h2>
+      <p>Here is a sample list of nearby branches and ATMs. In production this would integrate with a map API.</p>
+      <ul class="location-list">
+        <li>Downtown Branch – 123 Main St.</li>
+        <li>Southside ATM – 456 Elm Ave.</li>
+        <li>Northside Branch – 789 Oak Rd.</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+  <!-- Security & Sign-in Modal -->
+  <div id="security-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Security &amp; Sign‑in</h2>
+      <p>Review the various options for securing your account. Options like passkeys, Face ID/Touch ID and two‑factor authentication can be configured here.</p>
+      <p>This demo illustrates how we would surface sign‑in settings in‑app.</p>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
+  <!-- Before vs After Modal -->
+  <div id="comparison-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Before vs After</h2>
+      <p>Transparency makes a real difference. On the left is a traditional banking timeline with unclear dates and status. On the right is our new timeline showing earliest/latest ETA and clear rail information.</p>
+      <p>This demo modal stands in for a richer slide deck.</p>
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
 </body>
 </html>

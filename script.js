@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
       $('#logo').textContent = logoText;
     }
     // Also sync inputs on theme page if present
-    if ($('#primary-color') && primary) {      $('#primary-color').value = primary;
+    if ($('#primary-color') && primary) {
+      $('#primary-color').value = primary;
     }
     if ($('#accent-color') && accent) {
       $('#accent-color').value = accent;
@@ -124,8 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // Addevent listeners for any generic modal close buttons
+  // Provide a generic close handler for all modal close buttons.  
+  // When a button with the class `close-modal` is clicked, its nearest parent
+  // with the `.modal` class is hidden again. This avoids having to
+  // explicitly bind each modal’s close button separately and ensures
+  // reliability across pages.
   $$('.close-modal').forEach((btn) => {
     btn.addEventListener('click', () => {
       const modalEl = btn.closest('.modal');
@@ -133,5 +137,29 @@ document.addEventListener('DOMContentLoaded', () => {
         modalEl.classList.add('hidden');
       }
     });
+  });
+
+  // --- More page modal triggers ---
+  // Each button on the More page opens its respective modal. When clicked, the
+  // corresponding modal is displayed by removing the `hidden` class.
+  const modalMapping = {
+    'start-chat': 'chat-modal',
+    'view-statements': 'statements-modal',
+    'find-location': 'location-modal',
+    'view-options': 'security-modal',
+    'view-comparison': 'comparison-modal'
+    // Additional mappings inserted below for card manage buttons on the Cards page
+    , 'manage-card1': 'card1-modal'
+    , 'manage-card2': 'card2-modal'
+  };
+  Object.keys(modalMapping).forEach((btnId) => {
+    const btnEl = document.getElementById(btnId);
+    const modalId = modalMapping[btnId];
+    const modalEl = document.getElementById(modalId);
+    if (btnEl && modalEl) {
+      btnEl.addEventListener('click', () => {
+        modalEl.classList.remove('hidden');
+      });
+    }
   });
 });
