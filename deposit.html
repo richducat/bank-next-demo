@@ -53,7 +53,8 @@
       <div class="modal-content">
         <h2>Deposit Availability</h2>
         <p>Your mobile check deposit is typically available the next business day by 9:00 AM – 5:00 PM. Holds may apply based on deposit history and check amount.</p>
-        <button class="close-modal">Close</button>
+        <!-- Add inline onclick to ensure modal closes even if scripts fail -->
+        <button class="close-modal" onclick="this.closest('.modal').classList.add('hidden')">Close</button>
       </div>
     </div>
   </main>

@@ -42,7 +42,8 @@
           authorized but not yet posted to your ledger. Once they post, they
           will adjust your ledger balance accordingly.
         </p>
-        <button class="close-modal">Close</button>
+        <!-- Add inline onclick to ensure modal closes even if scripts fail -->
+        <button class="close-modal" onclick="this.closest('.modal').classList.add('hidden')">Close</button>
       </div>
     </div>
     <!-- Transaction timeline -->
