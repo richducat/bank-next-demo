@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Next Demo – Markets</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">BANK</div>
+    <nav>
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="index.html" id="nav-home">Home</a>
+      <a href="cards.html" id="nav-cards">Cards</a>
+      <a href="deposit.html" id="nav-deposit">Deposit</a>
+      <a href="pay.html" id="nav-pay">Pay</a>
+      <a href="markets.html" id="nav-markets">Markets</a>
+      <a href="more.html" id="nav-more">More</a>
+    </nav>
+  </header>
+  <main class="markets-main">
+    <section class="markets-hero">
+      <div>
+        <p class="pill">New in Bank Next</p>
+        <h1>Markets: live‑style quote experience</h1>
+        <p class="lead">
+          Showcase a production‑grade quote page inside your banking experience. The starter ships with
+          a Next.js + TypeScript front end, Chart.js visuals, and pluggable data providers so you can
+          light up mock or real market data fast.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#install">Set it up</a>
+          <a class="btn secondary" href="#features">See what is included</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Live page flow</h3>
+        <ul>
+          <li>Quote header with price, delta, and session time</li>
+          <li>Tabs for Summary, Chart, News, Community, Historical, Options, Components</li>
+          <li>Range chips and performance outlook aside</li>
+          <li>Provider abstraction for mock or Polygon data</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>What is included</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Modern stack</h3>
+          <p>Next.js (App Router) with TypeScript, Chart.js (time scale), Dockerfile, and CI build.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Responsive quote layout</h3>
+          <p>Two‑column layout with quote header, range chips, tabs, stats grid, range bars, chart panel, news, historical table, options chain, and components list.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Data providers</h3>
+          <p>Mock data works out of the box. Switch to Polygon by adding <code>DATA_PROVIDER=polygon</code> and your <code>POLYGON_API_KEY</code>.</p>
+        </article>
+        <article class="feature-card">
+          <h3>APIs ready to extend</h3>
+          <p>API routes under <code>/api</code> cover quote, OHLC, history, news, options, and components so you can layer in your own licensed market vendor.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="install" class="callout">
+      <div>
+        <h2>Install locally with mock data</h2>
+        <p>Spin up the quote experience for demos in minutes.</p>
+        <ol class="install-list">
+          <li>Unzip or clone the starter and <code>cd</code> into it.</li>
+          <li><code>npm install</code></li>
+          <li><code>cp .env.example .env.local</code> (defaults to <code>DATA_PROVIDER=mock</code>)</li>
+          <li><code>npm run dev</code> then open <code>http://localhost:3000</code></li>
+          <li>Try pages like <code>/quote/%5EGSPC</code> or <code>/quote/AAPL</code></li>
+        </ol>
+      </div>
+      <div>
+        <h3>Switch to Polygon (optional)</h3>
+        <ol class="install-list">
+          <li>Get a Polygon API key.</li>
+          <li>Set <code>DATA_PROVIDER=polygon</code> and <code>POLYGON_API_KEY=your_key_here</code> in <code>.env.local</code>.</li>
+          <li>Restart <code>npm run dev</code>.</li>
+          <li>Adjust index symbol mapping in <code>lib/providers/polygon.ts</code> if needed (e.g., <code>^GSPC</code> → <code>I:SPX</code>).</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>What ships in the repo</h2>
+      <p class="lead">Drop the starter into your own Git repo or CI without rewriting the scaffolding.</p>
+      <div class="two-col stack-gap">
+        <div>
+          <h3>Core files</h3>
+          <ul class="stacked-list">
+            <li><strong>package.json</strong>: Next 14 + React 18 + Chart.js + SWR dependencies.</li>
+            <li><strong>next.config.js</strong>: App Router defaults with server actions enabled.</li>
+            <li><strong>tsconfig.json</strong>: strict TypeScript setup with path alias <code>@/*</code>.</li>
+            <li><strong>app/globals.css</strong>: theme tokens and layout for the quote page.</li>
+            <li><strong>components/QuoteView.tsx</strong>: tabs, charts, stats, news, options, components.</li>
+            <li><strong>app/api/*</strong>: API routes for quote, ohlc, history, news, options, components.</li>
+            <li><strong>lib/providers</strong>: provider interface plus <code>mock</code> and <code>polygon</code> implementations.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ops ready</h3>
+          <ul class="stacked-list">
+            <li><strong>.env.example</strong>: toggle <code>DATA_PROVIDER</code> and <code>POLYGON_API_KEY</code>.</li>
+            <li><strong>Dockerfile</strong>: production multi‑stage build.</li>
+            <li><strong>.github/workflows/ci.yml</strong>: Node 20 build with <code>npm ci</code> + <code>npm run build</code>.</li>
+            <li><strong>README</strong>: quick start, provider selection, deployment hints.</li>
+          </ul>
+          <div class="code-block" aria-label="Project tree">
+            <pre><code>app/
+  page.tsx
+  quote/[symbol]/page.tsx
+  api/{quote,ohlc,news,history,options,components}/route.ts
+components/QuoteView.tsx
+lib/providers/{index,mock,polygon}.ts
+Dockerfile · ci.yml · .env.example</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div>
+        <h2>Why it fits the live banking app</h2>
+        <p>
+          The quote page mirrors our product voice and transparency goals: clear price context, rich fundamentals,
+          and actionable news in one place. Drop the Next.js app behind the <em>Markets</em> tab, and the rest of the
+          experience (cards, deposits, payments) stays unchanged.
+        </p>
+        <ul>
+          <li>Design tokens in <code>app/globals.css</code> make it easy to align with your banking palette.</li>
+          <li>Route handlers are <code>no-store</code> today; add revalidation for SSR/ISR when you go live.</li>
+          <li>Options chain and index components are wired for mock data but ready for your production vendor.</li>
+        </ul>
+      </div>
+      <div class="status-card">
+        <h3>Deployment checklist</h3>
+        <ul>
+          <li>Configure <code>DATA_PROVIDER</code> for your data source.</li>
+          <li>Confirm exchange/index symbol mappings per vendor.</li>
+          <li>Wire your CI (GitHub Actions provided) and container build (Dockerfile included).</li>
+          <li>Point DNS or reverse proxy to the Next.js app once verified.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bank Next Demo</p>
+  </footer>
+</body>
+</html>
