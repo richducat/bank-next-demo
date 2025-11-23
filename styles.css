@@ -308,3 +308,114 @@ input:checked + .slider:before {
 .back-container {
   margin-top: 1rem;
 }
+
+/* Markets page styles */
+.markets-main {
+  max-width: 1100px;
+}
+
+.markets-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 149, 190, 0.12);
+  color: var(--color-accent);
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.lead {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-card {
+  background: var(--color-surface);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.feature-card {
+  background: var(--color-surface);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.callout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, rgba(23, 103, 92, 0.08), rgba(0, 149, 190, 0.08));
+}
+
+.install-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.status-card {
+  background: var(--color-surface);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.callout-link {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.callout-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .markets-hero, .two-col {
+    grid-template-columns: 1fr;
+  }
+}
