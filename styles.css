@@ -389,42 +389,6 @@ input:checked + .slider:before {
   align-items: start;
 }
 
-.stack-gap {
-  gap: 1.5rem;
-}
-
-.section-card {
-  background: var(--color-surface);
-  border: 1px solid #e0e0e0;
-  border-radius: var(--border-radius);
-  padding: 1.25rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  margin: 1.5rem 0;
-}
-
-.stacked-list {
-  list-style: disc;
-  padding-left: 1.25rem;
-  display: grid;
-  gap: 0.35rem;
-}
-
-.code-block {
-  margin-top: 0.75rem;
-  border: 1px solid #e0e0e0;
-  border-radius: var(--border-radius);
-  background: #0b1623;
-  color: #e2e8f0;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-  padding: 0.75rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
 .status-card {
   background: var(--color-surface);
   border: 1px solid #e0e0e0;
